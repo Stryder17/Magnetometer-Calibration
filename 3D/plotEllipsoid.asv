@@ -34,9 +34,7 @@ centre = M\x
 
 % New coordinates basis where ellipsoid is not rotating
 % **Left hand coordinate sys to right hand conversion
-[evec,eval] = eig(M) 
-
-
+[evec,~] = eig(M) 
 x_ = evec(:,1); 
 y_ = evec(:,2);
 z_ = evec(:,3);
@@ -52,7 +50,7 @@ z = [0 0 1]';
 % DCM (Inertial(x,y,z)->Body(x_,y_,z_))
 C  = [dot(x_,x) dot(x_,y) dot(x_,z); ...
         dot(y_,x) dot(y_,y) dot(y_,z); ...
-        dot(z_,x) dot(z_,y) dot(z_,z)]
+        dot(z_,x) dot(z_,y) dot(z_,z)];
 
 disp(det(C)) % Check left handed or right handed system
 
@@ -97,12 +95,12 @@ z = c_*sin(theta);
 % Rotate using DCM (321)
 % for i_iters = 1: length(x)
 %      old = [x(i_iters),y(i_iters),z(i_iters)]';
-%      new = C*old;
+%      new = C'*old;
 %      x(i_iters) = new(1);
 %      y(i_iters) = new(2);
 %      z(i_iters) = new(3);
 % end
-
+% C
 x = xc + x;
 y = yc + y;
 z = zc + z;
