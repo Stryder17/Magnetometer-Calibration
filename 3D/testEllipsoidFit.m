@@ -19,13 +19,14 @@ close all
 % zc = 10;
 
 % Rotation angles of the ellipsoid (3-2-1 Euler angles) 
-yaw = 0; 
-pitch = 0; 
+yaw = pi/3; 
+pitch = pi/4; 
 roll = 0; % ROll
 
-a = 10; 
-b = 20; 
+a = 10;
+b = 20;
 c = 30;
+
 xc = 10;
 yc = 15;
 zc = 10;
@@ -49,7 +50,7 @@ y = yc + xyz(:,2);
 z = zc + xyz(:,3);
 
 % Add noise to generated points
-SNR = 100;
+SNR = 1000;
 x = awgn(x,SNR,'measured');
 y = awgn(y,SNR,'measured');
 z = awgn(z,SNR,'measured');
@@ -59,8 +60,8 @@ v = ellipsoidFit(x,y,z);
 
 % Plot and camera settings
 % set(gca,'NextPlot','add', 'Visible','off');
-view(59,13); hold on
+% view(59,13); hold on
 
 %%% Plot
-plotEllipsoid(v); % Estimated ellipse
+plotEllipsoid(v,C); % Estimated ellipse
 plot3(x,y,z,'.'); % Input points
