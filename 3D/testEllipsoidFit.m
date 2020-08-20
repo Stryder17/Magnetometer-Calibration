@@ -19,9 +19,9 @@ close all
 % zc = 10;
 
 % Rotation angles of the ellipsoid (3-2-1 Euler angles) 
-yaw = pi/3; 
-pitch = pi/4; 
-roll = 0; % ROll
+yaw = pi; 
+pitch = pi; 
+roll =pi/7; % ROll
 
 a = 10;
 b = 20;
@@ -63,5 +63,5 @@ v = ellipsoidFit(x,y,z);
 % view(59,13); hold on
 
 %%% Plot
-plotEllipsoid(v,C); % Estimated ellipse
+plotEllipsoid(v); % Estimated ellipse
 plot3(x,y,z,'.'); % Input points

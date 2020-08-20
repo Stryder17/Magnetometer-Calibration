@@ -1,4 +1,4 @@
-function [] = plotEllipsoid(v,C)
+function [] = plotEllipsoid(v)
 % Plots ellipsoid from coefficients of general quadrics equation
 % Result of whole night discussion with Manjul (2020/6/8-9) 
 %
@@ -26,8 +26,8 @@ M =[a h g; h b f; g f c];
 
 [evec,eval]=eig(M)
 disp(det(-evec));
-
-M_ = C'*M*C
+C = evec;
+M_ = C'*M*C;
 a_ = M_(1,1);
 b_ = M_(2,2);
 c_ = M_(3,3);
@@ -49,8 +49,8 @@ x_ = ax_*cos(theta).*cos(phi);
 y_ = bx_*cos(theta).*sin(phi);
 z_ = cx_*sin(theta);
 
-mesh(x_,y_,z_,'FaceAlpha','0.5')
-axis equal
+% mesh(x_,y_,z_,'FaceAlpha','0.5')
+% axis equal
 hold on;
 
 x_ = x_(:);
