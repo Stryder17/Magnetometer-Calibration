@@ -77,12 +77,12 @@ y_ = bx_*cos(theta).*sin(phi);
 z_ = cx_*sin(theta);
 
 %%% Note
-% Till now we have done and extracted all the information out from the
-% input coefficients of ellipsoid. We generated the points too but it must
-% be remembered that these points are described in the coordinate
-% represented by eigenvectors where there is no rotation of ellipsoid. Now
-% all that remains is to rotate each points using DCM (C) that we found
-% above.
+% Till now we have extracted all the information out from the
+% input coefficients of ellipsoid. We generated the points of ellipsoid 
+% too. It must be remembered that these points are described in the 
+% coordinate represented by eigenvectors where there is no rotation of 
+% ellipsoid. Now all that remains is to rotate each points using DCM (C) 
+% that we found above.
 
 %%% Uncomment this to view unrotated ellipsoid
 % mesh(x_,y_,z_,'FaceAlpha','0.5')
